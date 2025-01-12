@@ -14,6 +14,7 @@ def clean_comments():
     try:
         df = pd.read_csv(input_file)  # Read the CSV file
         df['Cleaned_Comment'] = df['Comment'].apply(clean_comment)  # Clean comments
+        df['Cleaned_Comment'].dropna()
         df.to_csv(output_file, index=False)  # Save cleaned comments
         print(f"Cleaned comments saved to {output_file}")
     except Exception as e:
